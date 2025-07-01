@@ -789,8 +789,8 @@ const projects: Project[] = [
     title: "AI Dockerfile Optimizer",
     src: "/assets/projects-screenshots/aidockerfileoptimizer/2.png",
     screenshots: ["1.png", "2.png", "3.png"],
-    live: "https://ai-docker-file-optimizer.netlify.app/",
-    github:"https://github.com/Abhiz2411/AI-Docker-file-optimizer",
+    live: "https://ai-docker-file-optimizer-eight.vercel.app/",
+    github:"https://github.com/sayf20/AI-Docker-file-optimizer",
     skills: {
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.vite],
       backend: [PROJECT_SKILLS.openai,PROJECT_SKILLS.netlify],
@@ -1029,8 +1029,8 @@ const projects: Project[] = [
     title: "Smart Job Tracker",
     src: "/assets/projects-screenshots/smartjobtracker/02.png",
     screenshots: ["01.png", "02.png", "03.png","04.png","05.png","06.png","07.png"],
-    live: "https://job-tracker-application-eight.vercel.app/",
-    github:"https://github.com/Abhiz2411/Job-tracker-application",
+    live: "https://job-tracker-application-sigma.vercel.app/",
+    github:"https://github.com/sayf20/job-tracker-application",
     skills: {
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind, PROJECT_SKILLS.vite],
       backend: [PROJECT_SKILLS.firebase],
@@ -1107,7 +1107,7 @@ const projects: Project[] = [
     src: "/assets/projects-screenshots/carserv/homepage.png",
     screenshots: ["homepage.png", "reservation.png", "services.png", "clinets.png","contact.png"],
     live: "https://mzpro.fr/production/carserv-1.0.0/",
-    github: "https://github.com/sayf20/CarServ",
+    github:"https://github.com/sayf20/CarServ",
     skills: {
       frontend: [PROJECT_SKILLS.html, PROJECT_SKILLS.css, PROJECT_SKILLS.bootstrap, PROJECT_SKILLS.js, PROJECT_SKILLS.scss],
       backend: [PROJECT_SKILLS.php],
@@ -1136,8 +1136,6 @@ const projects: Project[] = [
               `${BASE_PATH}/carserv/homepage.png`,
               `${BASE_PATH}/carserv/reservation.png`,
               `${BASE_PATH}/carserv/services.png`,
-              `${BASE_PATH}/carserv/clinets.png`,
-              `${BASE_PATH}/carserv/contact.png`,
             ]}
           />
           <TypographyH3 className="my-4 mt-8">Technical Implementation</TypographyH3>
@@ -1147,6 +1145,12 @@ const projects: Project[] = [
             picking for appointments, dynamic content loading, and a secure admin interface
             for business management.
           </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/carserv/clinets.png`,
+              `${BASE_PATH}/carserv/contact.png`,
+            ]}
+          />
         </div>
       );
     },
@@ -1238,8 +1242,6 @@ const projects: Project[] = [
               `${BASE_PATH}/futurnet/propos.png`,
               `${BASE_PATH}/futurnet/propos1.png`,
               `${BASE_PATH}/futurnet/services.png`,
-              `${BASE_PATH}/futurnet/contact.png`,
-              `${BASE_PATH}/futurnet/rever.png`,
             ]}
           />
           <TypographyH3 className="my-4 mt-8">Technical Stack</TypographyH3>
@@ -1248,6 +1250,13 @@ const projects: Project[] = [
             jQuery for enhanced interactivity, Owl Carousel for smooth slideshows, WOW.js for scroll
             animations, and Tempus Dominus for a user-friendly booking system.
           </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/futurnet/contact.png`,
+              `${BASE_PATH}/futurnet/rever.png`,
+            ]}
+          />
+
         </div>
       );
     },

@@ -40,10 +40,10 @@ const config = {
     return this.site + "/assets/seo/og-image.png";
   },
   social: {
-    twitter: "https://x.com/_Abhi_Speaks/",
+    twitter: "",
     linkedin: "https://www.linkedin.com/in/saifeddine-mosrati-60436b2bb/",
-    instagram: "https://www.instagram.com/_.celestial_abhi._/",
-    facebook: "https://www.facebook.com/profile.php?id=100010029821759",
+    instagram: "",
+    facebook: "",
     github: "https://github.com/sayf20",
   },
 };
