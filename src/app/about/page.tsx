@@ -14,26 +14,29 @@ import {
   FaNodeJs,
   FaPhone,
   FaReact,
-  FaVuejs,
-  FaYarn,
+  //FaVuejs,
+  //FaYarn,
 } from "react-icons/fa6";
 import {
   RiFirebaseFill,
-  RiJavascriptFill,
-  RiNextjsFill,
+  //RiJavascriptFill,
+  //RiNextjsFill,
   RiTailwindCssFill,
 } from "react-icons/ri";
 import {
   SiExpress,
   SiJavascript,
-  SiKubuntu,
-  SiPm2,
-  SiPrettier,
+  //SiKubuntu,
+  //SiPm2,
+  //SiPrettier,
   SiTypescript,
   SiVercel,
-  SiVisualstudiocode,
+  //SiVisualstudiocode,
+  SiJenkins,
+  SiKubernetes,
+  SiPython,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
+// import { VscCode } from "react-icons/vsc";
 
 // @ts-ignore
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -43,8 +46,8 @@ import { TbTerminal2 } from "react-icons/tb";
 const CONTACT_LINKS = [
   {
     name: "Email",
-    content: "abhijitzende75@gmail",
-    href: "mailto:abhijitzende75@gmail.com",
+    content: "mosratisayf20@gmail.com",
+    href: "mailto:mosratisayf20@gmail.com",
     icon: <FaEnvelope height={"50px"} />,
   },
   {
@@ -55,14 +58,14 @@ const CONTACT_LINKS = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/zende-abhijit/",
-    content: "/zende-abhijit",
+    href: "https://www.linkedin.com/in/saifeddine-mosrati-60436b2bb/",
+    content: "/saifeddine-mosrati",
     icon: <FaLinkedin height={"50px"} />,
   },
   {
     name: "GitHub",
-    href: "https://github.com/Abhiz2411",
-    content: "/naresh-khatri",
+    href: "https://github.com/sayf20",
+    content: "/sayf20",
     icon: <FaGithub height={"50px"} />,
   },
 ];
@@ -117,10 +120,10 @@ const TOOLS = [
     color: "#008000",
   },
   {
-    name: "Vue.js",
-    content: "Next.js is a React framework for production",
-    icon: <FaVuejs size={"50px"} color="#41b883" />,
-    color: "#41b883",
+    name: "Kubernetes",
+    content: "Kubernetes orchestrates your containers like a pro.",
+    icon: <SiKubernetes size={"50px"} color="#326ce5" />,
+    color: "#326ce5",
   },
   {
     name: "Express.js",
@@ -165,22 +168,10 @@ const TOOLS = [
     color: "#000000",
   },
   {
-    name: "VS Code",
-    content: "Next.js is a React framework for production",
-    icon: <SiVisualstudiocode size={"50px"} color="#007acc" />,
-    color: "#007acc",
-  },
-  {
-    name: "VIM",
-    content: "Next.js is a React framework for production",
-    icon: <DiVim size={"50px"} color="#fff" />,
-    color: "#000000",
-  },
-  {
-    name: "Prettier",
-    content: "Next.js is a React framework for production",
-    icon: <SiPrettier size={"50px"} color="#f7b93c" />,
-    color: "#f7b93c",
+    name: "Jenkins",
+    content: "Jenkins automates building, testing, and deploying your code.",
+    icon: <SiJenkins size={"50px"} color="#d33833" />,
+    color: "#d33833",
   },
   {
     name: "NPM",
@@ -188,12 +179,7 @@ const TOOLS = [
     icon: <DiNpm size={"50px"} color="#CB3837" />,
     color: "#CB3837",
   },
-  {
-    name: "Yarn",
-    content: "Next.js is a React framework for production",
-    icon: <FaYarn size={"50px"} color="#2C8EBB" />,
-    color: "#2C8EBB",
-  },
+
   {
     name: "Vercel",
     content: "Next.js is a React framework for production",
@@ -207,13 +193,6 @@ const TOOLS = [
     color: "#000000",
   },
   {
-    name: "Kubuntu",
-    content: "Next.js is a React framework for production",
-    // give me correct color for  kubuntu
-    icon: <SiKubuntu size={"50px"} color="#0077C4" />,
-    color: "#000000",
-  },
-  {
     name: "Terminal",
     content: "Next.js is a React framework for production",
     icon: <TbTerminal2 size={"50px"} color="#fff" />,
@@ -224,6 +203,12 @@ const TOOLS = [
     content: "Next.js is a React framework for production",
     icon: <FaAws size={"50px"} color="#3f51b5" />,
     color: "#000000",
+  },
+  {
+    name: "Python",
+    content: "Next.js is a React framework for production",
+    icon: <SiPython size={"50px"} color="#3776ab" />,
+    color: "#3776ab",
   },
 ];
 
@@ -293,8 +278,7 @@ function Page() {
               and a team-oriented approach to driving process improvements and delivering results.
             </p>
             <p className="mb-10">
-              When I&apos;m not coding, you can find me [Your
-              Interests/Hobbies], exploring new technologies, or sipping coffee
+              When I&apos;m not coding, you can find me coding, at the gym, playing football, or basketball, exploring new technologies, or sipping coffee
               while brainstorming my next project.
             </p>
             <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>

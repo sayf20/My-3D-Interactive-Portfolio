@@ -4,12 +4,12 @@ export enum SkillNames {
   // AZURE = "azure",    // +
   LINUX = "linux",    
   // SHELL = "shell",    // +
-  // PYTHON = "python",  // +
+  PYTHON = "python",  
   GIT = "git",
   DOCKER = "docker",
   // SELENIUM = "selenium",  // +
-  // JENKINS = "jenkins",    // +
-  // KUBERNETES = "kubernetes",  // +
+  JENKINS = "jenkins",    // +
+  KUBERNETES = "kubernetes",  // +
   // ANSIBLE = "ansible",    // +
   // TERRAFORM = "terraform",  // +
   // PROMETHEUS = "prometheus",  // +
@@ -26,19 +26,19 @@ export enum SkillNames {
   POSTGRES = "postgres",
   TS = "ts",         //
   REACT = "react",   //
-  VUE = "vue",       //
+  // VUE = "vue",       //
   NEXTJS = "nextjs", //
   TAILWIND = "tailwind",  //
   NODEJS = "nodejs",  //
   EXPRESS = "express",  // 
   MONGODB = "mongodb",  //
   GITHUB = "github",   //
-  PRETTIER = "prettier",  //
+  // PRETTIER = "prettier",  // (commented out)
   NPM = "npm",       //
   FIREBASE = "firebase",  //
   WORDPRESS = "wordpress",  //
   NGINX = "nginx",      //
-  VIM = "vim",           //
+  // VIM = "vim",           // (commented out)
   VERCEL = "vercel",    //
 }
 export type Skill = {
@@ -92,14 +92,14 @@ using use = useUsing("use")`,
     color: "#61dafb",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
-  [SkillNames.VUE]: {
+  [SkillNames.KUBERNETES]: {
     id: 6,
-    name: "vue",
-    label: "Vue",
+    name: "kubernetes",
+    label: "Kubernetes",
     shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
-    color: "#41b883",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+      "Herding containers like a pro rancher. Yeehaw, pods! 🐂⛴️s",
+    color: "#fff",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
   },
   [SkillNames.NEXTJS]: {
     id: 7,
@@ -166,13 +166,13 @@ using use = useUsing("use")`,
     color: "#000000",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
-  [SkillNames.PRETTIER]: {
+  [SkillNames.JENKINS]: {
     id: 15,
-    name: "prettier",
-    label: "Prettier",
-    shortDescription: "making your code not a whole mess, thank u next 🧹✨",
-    color: "#f7b93a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
+    name: "jenkins",
+    label: "Jenkins",
+    shortDescription: "The 'butler' who builds and deploys your code but complains with every red build. 🤵🚦",
+    color: "#6cc24a",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg",
   },
   [SkillNames.NPM]: {
     id: 16,
@@ -232,13 +232,13 @@ using use = useUsing("use")`,
     color: "#ff9900",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
   },
-  [SkillNames.VIM]: {
+  [SkillNames.PYTHON]: {
     id: 23,
-    name: "vim",
-    label: "Vim",
-    shortDescription: "exit? In this economy? Ight, imma head out! 🚪🏃",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
+    name: "python",
+    label: "Python",
+    shortDescription: "The coding equivalent of 'It just works' — even when you barely know what you're doing. 🐍📜",
+    color: "#61dafb",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   },
   [SkillNames.VERCEL]: {
     id: 24,
@@ -267,7 +267,7 @@ using use = useUsing("use")`,
 //     name: "azure",
 //     label: "Azure",
 //     shortDescription:
-//       "Microsoft’s Hey, we do cloud too flex. 🌥️🔗",
+//       "Microsoft's Hey, we do cloud too flex. 🌥️🔗",
 //     color: "#007acc",
 //     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
 //   },
@@ -341,7 +341,7 @@ using use = useUsing("use")`,
 //     id: 11,
 //     name: "ansible",
 //     label: "Ansible",
-//     shortDescription: "Automation so simple even your non-techie friend would think it’s just magic. 🪄📜",
+//     shortDescription: "Automation so simple even your non-techie friend would think it's just magic. 🪄📜",
 //     color: "#336791",
 //     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg",
 //   },
@@ -357,7 +357,7 @@ using use = useUsing("use")`,
 //     id: 13,
 //     name: "prometheus",
 //     label: "Prometheus",
-//     shortDescription: "Your system’s stalker — knows all the CPU gossip. 📈👀",
+//     shortDescription: "Your system's stalker — knows all the CPU gossip. 📈👀",
 //     color: "#f1502f",
 //     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg",
 //   },
@@ -448,7 +448,7 @@ using use = useUsing("use")`,
 //     name: "postgres",
 //     label: "Postgres",
 //     shortDescription:
-//       "Data’s personal diary — secure, organized, and occasionally moody with your queries. 📔🛠️",
+//       "Data's personal diary — secure, organized, and occasionally moody with your queries. 📔🛠️",
 //     color: "#6cc24a",
 //     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
 //   },
