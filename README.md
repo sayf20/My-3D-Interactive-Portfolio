@@ -2,7 +2,7 @@
 
 Welcome to the repository for my personal portfolio website! 🎉 This project is a culmination of creativity, technology, and my dedication to showcasing my skills, projects, and personality in a visually stunning and interactive manner.
 
-### Live preview: [My Portfolio]([My Portfolio](URL_ADDRESS-3d-interactive-portfolio.vercel.app/))
+### Live preview: [My Portfolio]([My Portfolio](https://myportfolio-3c90byw4v-sayf20s-projects.vercel.app/))
 
 
 This project is **inspired** by the amazing work of [Naresh Khatri](). His innovative approach to web design and attention to detail has been a huge influence. Thank you, Naresh! 🙏
