@@ -52,7 +52,7 @@ const CONTACT_LINKS = [
   },
   {
     name: "Phone",
-    content: "1234567890",
+    content: "+33 0765232847",
     href: "tel:8308509180",
     icon: <FaPhone height={"50px"} />,
   },
@@ -120,8 +120,8 @@ const TOOLS = [
     color: "#008000",
   },
   {
-    name: "Kubernetes",
-    content: "Kubernetes orchestrates your containers like a pro.",
+    name: "Azure",
+    content: "Microsoft's Hey, we do cloud too flex. 🌥️🔗s.",
     icon: <SiKubernetes size={"50px"} color="#326ce5" />,
     color: "#326ce5",
   },
@@ -228,17 +228,23 @@ function Page() {
             }}
           >
             <div className="flex flex-row lg:flex-col items-center">
-              <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5">
+            <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5 overflow-hidden">
                 <img
-                  className="rounded-full p-4 lg:p-10 w-[100px] md:w-[150px] lg:w-[200px] aspect-square  bg-zinc-800"
+                  className="w-full h-full object-cover object-[50%_10%]"
                   alt="me"
-                  src="/assets/me.jpg"
+                  src="/assets/me1.png"
                 />
               </div>
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
                 <p className="text-center text-xl">Saifeddine MOSRATI</p>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
-                  Web Developer
+                    Cybersecurity Engineer
+                </div>
+                <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
+                    Fullstack Developer
+                </div>
+                <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
+                    DevOps & DevSecOps
                 </div>
               </div>
             </div>
@@ -272,14 +278,14 @@ function Page() {
           >
             <h1 className="text-3xl mb-10 lg:md-20">About me</h1>
             <p className="mb-10 text-roboto">
-              Hey there! I&apos;m Saifeddine, a Comp. Sci. Engineer with 1.5 year experience in Devlopment, DevOps and 
+              Hey there! I&apos;m Saifeddine, a Comp. Sci. Engineer specialized in cybersecurity and connected objects (IoT) with 1.5 year experience in Devlopment, DevOps,DevSecOps and 
               Database management with hands-on experience in deploying & automating workflows, and 
               collaborating with foreign clients. Strong analytical skills,effective communication,
               and a team-oriented approach to driving process improvements and delivering results.
             </p>
             <p className="mb-10">
-              When I&apos;m not coding, you can find me coding, at the gym, playing football, or basketball, exploring new technologies, or sipping coffee
-              while brainstorming my next project.
+              When I&apos;m not coding, you’ll find me at the gym, playing football or basketball, hiking,
+              watching anime, exploring new places, or simply enjoying a good coffee.
             </p>
             <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>
             <div className="mb-5">

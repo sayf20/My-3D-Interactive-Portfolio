@@ -1206,8 +1206,8 @@ const projects: Project[] = [
     title: "Futurnet Menuiserie",
     src: "/assets/projects-screenshots/futurnet/acc_mens.png",
     screenshots: ["acc_mens.png", "propos.png","propos1.png","services.png","contact.png","rever.png",],
-    live: "https://mzpro.fr/production/Futurnet-%20Menuiserie-1.0.0/",
     github:"https://github.com/sayf20/Menuiserie-FuturBois-Website",
+    live:"https://mzpro.fr/production/Futurnet-%20Menuiserie-1.0.0/",
     skills: {
       frontend: [
         PROJECT_SKILLS.html,

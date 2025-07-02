@@ -34,7 +34,7 @@ const config = {
   ],
   author: "Saifeddine MOSRATI",
   email: "mosratisayf20@gmail.com",
-  site: "https://Saifeddinemosrati.com",
+  site: "https://myportfolio-3c90byw4v-sayf20s-projects.vercel.app/",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
@@ -42,8 +42,8 @@ const config = {
   social: {
     twitter: "",
     linkedin: "https://www.linkedin.com/in/saifeddine-mosrati-60436b2bb/",
-    instagram: "",
-    facebook: "",
+    instagram: "https://www.instagram.com/mosrati.18/",
+    facebook: "https://www.instagram.com/mosrati.18/",
     github: "https://github.com/sayf20",
   },
 };

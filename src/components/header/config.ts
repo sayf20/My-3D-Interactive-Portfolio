@@ -4,28 +4,28 @@ const links: Link[] = [
   {
     title: 'Home',
     href: '/',
-    thumbnail: '/assets/nav-link-previews/landing.png'
+    thumbnail: '/assets/projects-screenshots/myportfolio/landing.png'
   },
   {
     title: 'About',
-    href: '/#about',
-    thumbnail: '/assets/nav-link-previews/about.png'
+    href: '/about',
+    thumbnail: '/assets/projects-screenshots/myportfolio/about.png'
   },
   {
     title: 'Skills',
     href: '/#skills',
-    thumbnail: '/assets/nav-link-previews/skills.png'
+    thumbnail: '/assets/projects-screenshots/portfolio/skills.png'
   },
   {
     title: 'Projects',
     href: '/#projects',
-    thumbnail: '/assets/nav-link-previews/projects.png'
+    thumbnail: '/assets/projects-screenshots/myportfolio/projects.png'
   },
-  {
-    title: 'Skills',
-    href: '/skills',
-    thumbnail: '/assets/nav-link-previews/skills.png'
-  },
+  //{
+  //  title: 'Skills',
+  //  href: '/skills',
+  //  thumbnail: '/assets/nav-link-previews/skills.png'
+  //},
   // {
   //   title: 'Testimonials',
   //   href: '/testimonials',
@@ -34,12 +34,12 @@ const links: Link[] = [
   {
     title: 'Blogs',
     href: '/blogs',
-    thumbnail: '/assets/nav-link-previews/blog.png',
+    thumbnail: '',
   },
   {
     title: 'Contact',
     href: '/#contact',
-    thumbnail: '/assets/nav-link-previews/contact.png'
+    thumbnail: '/assets/projects-screenshots/myportfolio/contact.png'
   }
 ];
 

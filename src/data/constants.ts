@@ -1,15 +1,15 @@
-// thoda zada ts ho gya idhar
+// Il y a un peu trop de TS ici, je vais essayer de le réduire
 export enum SkillNames {
   AWS = "aws",
-  // AZURE = "azure",    // +
+  AZURE = "azure",    // +
   LINUX = "linux",    
   // SHELL = "shell",    // +
-  PYTHON = "python",  
+  PYTHON = "python",
   GIT = "git",
   DOCKER = "docker",
   // SELENIUM = "selenium",  // +
-  JENKINS = "jenkins",    // +
-  KUBERNETES = "kubernetes",  // +
+  JENKINS = "jenkins",
+  // KUBERNETES = "kubernetes",
   // ANSIBLE = "ansible",    // +
   // TERRAFORM = "terraform",  // +
   // PROMETHEUS = "prometheus",  // +
@@ -38,8 +38,8 @@ export enum SkillNames {
   FIREBASE = "firebase",  //
   WORDPRESS = "wordpress",  //
   NGINX = "nginx",      //
-  // VIM = "vim",           // (commented out)
-  VERCEL = "vercel",    //
+  //VIM = "vim",           // (commented out)
+  VERCEL = "vercel",  
 }
 export type Skill = {
   id: number;
@@ -88,18 +88,18 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "react",
     label: "React",
     shortDescription: `"use using" 
-using use = useUsing("use")`,
+  using use = useUsing("use")`,
     color: "#61dafb",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
-  [SkillNames.KUBERNETES]: {
-    id: 6,
-    name: "kubernetes",
-    label: "Kubernetes",
+  [SkillNames.AZURE]: {
+    id: 2,
+    name: "azure",
+    label: "Azure",
     shortDescription:
-      "Herding containers like a pro rancher. Yeehaw, pods! 🐂⛴️s",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg",
+    "Microsoft's Hey, we do cloud too flex. 🌥️🔗",
+    color: "#007acc",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg",
   },
   [SkillNames.NEXTJS]: {
     id: 7,
@@ -237,7 +237,7 @@ using use = useUsing("use")`,
     name: "python",
     label: "Python",
     shortDescription: "The coding equivalent of 'It just works' — even when you barely know what you're doing. 🐍📜",
-    color: "#61dafb",
+    color: "#326ce5",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   },
   [SkillNames.VERCEL]: {
