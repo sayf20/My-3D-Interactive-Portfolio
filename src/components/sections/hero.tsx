@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
-import { File, Github, Linkedin } from "lucide-react";
+import { File } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -76,22 +76,21 @@ const HeroSection = () => {
                       "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    DevSecOps Engineer / Fullstack Developer
+                    R&D Data Engineer @ Mantu — je construis l&apos;IA, et je
+                    la sécurise.
                   </p>
                 </BlurIn>
               </div>
               <div className="mt-8 md:ml-2 flex flex-col gap-3">
                 <Link
-                  href={
-                    "https://drive.google.com/file/d/1JkAEi15Z_I4sy0t8IThk8hMpqZ9JLfvO/view?usp=sharing"
-                  }
+                  href={config.resume.fr}
                   target="_blank"
                   className="flex-1"
                 >
                   <BoxReveal delay={2} width="100%" >
                     <Button className="flex items-center gap-2 w-full">
                       <File size={24} />
-                      <p>Resume</p>
+                      <p>Mon CV</p>
                     </Button>
                   </BoxReveal>
                 </Link>

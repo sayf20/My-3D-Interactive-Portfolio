@@ -307,6 +307,8 @@ const PROJECT_SKILLS = {
     icon: <SiSass />,
   },
 };
+export type ProjectStatus = "shipped" | "wip" | "soon";
+
 export type Project = {
   id: string;
   category: string;
@@ -317,8 +319,114 @@ export type Project = {
   content: React.ReactNode | any;
   github?: string;
   live: string;
+  status?: ProjectStatus;
+  // libellé court affiché sous le titre pour les projets en cours / à venir
+  statusNote?: string;
 };
+
+// Métadonnées d'affichage des statuts (badge)
+export const PROJECT_STATUS: Record<
+  ProjectStatus,
+  { label: string; className: string }
+> = {
+  shipped: {
+    label: "Livré",
+    className: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
+  },
+  wip: {
+    label: "En cours",
+    className: "bg-amber-500/15 text-amber-300 border-amber-500/30",
+  },
+  soon: {
+    label: "Bientôt",
+    className: "bg-sky-500/15 text-sky-300 border-sky-500/30",
+  },
+};
+// Encadré réutilisable pour les projets en cours / à venir :
+// ce qui est déjà fait, et ce qui sera ajouté (photos, résultats, rapport).
+const RoadmapNote = ({
+  done,
+  next,
+}: {
+  done: string[];
+  next: string[];
+}) => (
+  <div className="grid md:grid-cols-2 gap-4 my-6">
+    <div className="rounded-lg border border-emerald-500/25 bg-emerald-500/5 p-4">
+      <p className="font-mono text-xs uppercase tracking-wider text-emerald-300 mb-3">
+        Déjà en place
+      </p>
+      <ul className="font-mono text-sm space-y-1.5 text-neutral-300">
+        {done.map((d) => (
+          <li key={d}>— {d}</li>
+        ))}
+      </ul>
+    </div>
+    <div className="rounded-lg border border-sky-500/25 bg-sky-500/5 p-4">
+      <p className="font-mono text-xs uppercase tracking-wider text-sky-300 mb-3">
+        À venir sur cette page
+      </p>
+      <ul className="font-mono text-sm space-y-1.5 text-neutral-300">
+        {next.map((n) => (
+          <li key={n}>— {n}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
+
 const projects: Project[] = [
+  {
+    // 00. Projet phare — Mantu
+    id: "mantu-smart-building",
+    category: "IA · Data Engineering · R&D",
+    title: "Prévision énergétique d'un bâtiment intelligent",
+    src: "",
+    screenshots: [],
+    status: "wip",
+    statusNote: "Projet en production chez Mantu — visuels et résultats à venir",
+    live: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.spline, PROJECT_SKILLS.tailwind],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.docker,
+      ],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            Mon projet principal en alternance chez Mantu (Mantu Lab, R&amp;D).
+            Sur un bâtiment connecté, je vais de la donnée brute des capteurs
+            jusqu&apos;à un service de prévision réellement utilisé : un pipeline
+            de Machine Learning qui prédit la consommation énergétique, la
+            plateforme de gestion des capteurs qui l&apos;alimente, et la sécurité
+            de l&apos;ensemble.
+          </TypographyP>
+          <RoadmapNote
+            done={[
+              "Pipeline complet : ingestion sur Azure, nettoyage, 89 signaux ramenés à ~20 grandeurs physiques",
+              "12 modèles comparés sur 3 horizons (1 h, 1 jour, 1 semaine) — XGBoost et CatBoost retenus",
+              "Optimisation avec Optuna, explications avec SHAP, API de prévision (Flask) déployée sur Azure",
+              "Plateforme IoT (Spring Boot, MySQL) : supervision temps réel, tableau de bord, jumeau numérique",
+              "41 jours de données perdues : diagnostic, récupération, reconstruction marquée",
+            ]}
+            next={[
+              "Schéma d'architecture (données → modèle → API → application)",
+              "Captures de l'interface de prévision et du backtest",
+              "Métriques finales du modèle par horizon",
+              "Lien vers le rapport technique",
+            ]}
+          />
+          <TypographyP className="font-mono text-sm text-neutral-400">
+            Projet R&amp;D interne : les visuels partagés ici seront des schémas
+            et des captures sans donnée client.
+          </TypographyP>
+        </div>
+      );
+    },
+  },
   // {
   //   id: "codingducks",
   //   category: "Coding platform",
@@ -1257,6 +1365,168 @@ const projects: Project[] = [
             ]}
           />
 
+        </div>
+      );
+    },
+  },
+  {
+    // Projet à venir — sécurité de l'IA
+    id: "llm-guardrail-lab",
+    category: "Sécurité de l'IA",
+    title: "LLM Guardrail Lab",
+    src: "",
+    screenshots: [],
+    status: "soon",
+    statusNote: "En préparation — banc d'essai de robustesse pour assistants IA",
+    live: "",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.next, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.python],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            Un banc d&apos;essai qui mesure la robustesse d&apos;un assistant
+            fondé sur un grand modèle de langage : résistance à l&apos;injection
+            de consignes, respect des garde-fous, absence de fuite
+            d&apos;informations. L&apos;idée est défensive — donner un score clair
+            et reproductible, pour renforcer un système avant sa mise en
+            production.
+          </TypographyP>
+          <RoadmapNote
+            done={[
+              "Objectif défini : évaluer et durcir, pas attaquer",
+              "Approche choisie : scénarios de test + tableau de bord de scores",
+              "S'appuie sur des référentiels reconnus (OWASP pour les LLM)",
+            ]}
+            next={[
+              "Le dépôt de code et la démonstration en ligne",
+              "Captures du tableau de bord de robustesse",
+              "Un court article expliquant la méthode et les résultats",
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    // Projet à venir — DevSecOps (EPITA)
+    id: "auditpilot",
+    category: "DevSecOps · Cybersécurité",
+    title: "AuditPilot — assistant d'audit réseau",
+    src: "",
+    screenshots: [],
+    status: "wip",
+    statusNote: "Projet EPITA en cours — version bêta prévue en novembre 2026",
+    live: "",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.docker],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            Projet de groupe du cours « Secure Development / DevSecOps » à
+            l&apos;EPITA. Un assistant qui aide à auditer la configuration de
+            sécurité d&apos;un réseau et à en résumer les points faibles, à partir
+            d&apos;un modèle de langage exécuté en local (pour que rien ne sorte du
+            poste) relié à des outils d&apos;audit défensifs.
+          </TypographyP>
+          <RoadmapNote
+            done={[
+              "Cahier des charges et découpage des rôles définis",
+              "Architecture choisie : modèle de langage local + outils d'audit",
+              "Échéances calées : bêta le 17 novembre, soutenance le 14 janvier",
+            ]}
+            next={[
+              "Le dépôt de code une fois la bêta livrée",
+              "Captures de l'assistant et d'un rapport d'audit d'exemple",
+              "Le bilan de la soutenance",
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    // Projet à venir — IA pour la sécurité
+    id: "federated-threat-detection",
+    category: "IA · Cybersécurité",
+    title: "Détection de menaces en apprentissage fédéré",
+    src: "",
+    screenshots: [],
+    status: "soon",
+    statusNote: "En préparation — détection collaborative qui préserve les données",
+    live: "",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.python],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            Entraîner un modèle de détection d&apos;anomalies réseau réparti sur
+            plusieurs sites, sans jamais centraliser leurs données : chaque site
+            garde ses journaux, seul le modèle apprend en commun. Une piste qui
+            relie mes deux sujets — l&apos;apprentissage automatique et la
+            protection des données.
+          </TypographyP>
+          <RoadmapNote
+            done={[
+              "Objectif défini : détecter ensemble sans partager les données",
+              "Approche choisie : apprentissage fédéré sur des jeux de données publics",
+            ]}
+            next={[
+              "Le dépôt de code et les premiers résultats",
+              "Comparaison avec un modèle centralisé classique",
+              "Un article expliquant l'intérêt pour la vie privée",
+            ]}
+          />
+        </div>
+      );
+    },
+  },
+  {
+    // Projet à venir — cryptographie
+    id: "crypto-agility-scanner",
+    category: "Cybersécurité",
+    title: "Scanner d'agilité cryptographique",
+    src: "",
+    screenshots: [],
+    status: "soon",
+    statusNote: "En préparation — repérer la cryptographie vieillissante d'un code",
+    live: "",
+    github: "",
+    skills: {
+      frontend: [PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.python],
+    },
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono">
+            Un outil qui parcourt une base de code et repère les usages de
+            cryptographie dépassée, puis propose des alternatives plus solides.
+            Utile pour préparer une organisation aux évolutions à venir des
+            standards de chiffrement, sans tout relire à la main.
+          </TypographyP>
+          <RoadmapNote
+            done={[
+              "Objectif défini : inventorier et conseiller, pas casser",
+              "Approche choisie : analyse statique + règles de bonnes pratiques",
+            ]}
+            next={[
+              "Le dépôt de code et un rapport d'exemple",
+              "Captures de l'inventaire cryptographique",
+              "Un court article sur la migration vers des algorithmes récents",
+            ]}
+          />
         </div>
       );
     },

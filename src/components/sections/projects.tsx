@@ -12,12 +12,46 @@ import { FloatingDock } from "../ui/floating-dock";
 import Link from "next/link";
 
 import SmoothScroll from "../smooth-scroll";
-import projects, { Project } from "@/data/projects";
+import projects, { Project, PROJECT_STATUS } from "@/data/projects";
 import { cn } from "@/lib/utils";
+
+const StatusBadge = ({ project }: { project: Project }) => {
+  const status = project.status ?? "shipped";
+  const meta = PROJECT_STATUS[status];
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-[11px] font-mono",
+        meta.className
+      )}
+    >
+      <span className="inline-block h-1.5 w-1.5 rounded-full bg-current" />
+      {meta.label}
+    </span>
+  );
+};
+
+// Vignette de repli, dessinée en CSS, pour les projets sans capture (encore).
+// Le titre n'est PAS répété ici : il est déjà affiché dans le bandeau du bas.
+const Placeholder = ({ project }: { project: Project }) => (
+  <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black">
+    <div
+      className="absolute inset-0 opacity-[0.15]"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.6) 1px, transparent 0)",
+        backgroundSize: "22px 22px",
+      }}
+    />
+    <span className="absolute top-4 left-5 font-mono text-xs tracking-wider text-zinc-500">
+      {(project.status ?? "shipped") === "wip" ? "Aperçu à venir" : "Bientôt"}
+    </span>
+  </div>
+);
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
+    <section id="projects" className="max-w-7xl mx-auto pb-32">
       <Link href={"#projects"}>
         <h2
           className={cn(
@@ -46,19 +80,31 @@ const Modall = ({ project }: { project: Project }) => {
             className="relative w-[400px] h-auto rounded-lg overflow-hidden"
             style={{ aspectRatio: "3/2" }}
           >
-            <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
-              src={project.src}
-              alt={project.title}
-              width={300}
-              height={300}
-            />
+            {project.src ? (
+              <Image
+                className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
+                src={project.src}
+                alt={project.title}
+                width={300}
+                height={300}
+              />
+            ) : (
+              <Placeholder project={project} />
+            )}
+            <div className="absolute top-3 right-3 z-10">
+              <StatusBadge project={project} />
+            </div>
             <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none">
-              <div className="flex flex-col h-full items-start justify-end p-6">
+              <div className="flex flex-col h-full items-start justify-end p-6 gap-1">
                 <div className="text-lg text-left">{project.title}</div>
                 <div className="text-xs bg-white text-black rounded-lg w-fit px-2">
                   {project.category}
                 </div>
+                {project.statusNote && (
+                  <div className="text-[11px] text-left text-zinc-300 max-w-[85%]">
+                    {project.statusNote}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -71,13 +117,15 @@ const Modall = ({ project }: { project: Project }) => {
           </SmoothScroll>
           <ModalFooter className="gap-4">
             <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-              Cancel
+              Fermer
             </button>
-            <Link href={project.live} target="_blank">
-              <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                Visit
-              </button>
-            </Link>
+            {project.live && (
+              <Link href={project.live} target="_blank">
+                <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
+                  Visiter
+                </button>
+              </Link>
+            )}
           </ModalFooter>
         </ModalBody>
       </Modal>

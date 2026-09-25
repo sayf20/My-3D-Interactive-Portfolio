@@ -52,13 +52,13 @@ const CONTACT_LINKS = [
   },
   {
     name: "Phone",
-    content: "+33 0765232847",
-    href: "tel:8308509180",
+    content: "+33 7 65 23 28 47",
+    href: "tel:+33765232847",
     icon: <FaPhone height={"50px"} />,
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/saifeddine-mosrati-60436b2bb/",
+    href: "https://www.linkedin.com/in/saifeddine-mosrati/",
     content: "/saifeddine-mosrati",
     icon: <FaLinkedin height={"50px"} />,
   },
@@ -238,13 +238,13 @@ function Page() {
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
                 <p className="text-center text-xl">Saifeddine MOSRATI</p>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
-                    Cybersecurity Engineer
+                    R&D Data Engineer @ Mantu
                 </div>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
-                    Fullstack Developer
+                    IA & Machine Learning
                 </div>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
-                    DevOps & DevSecOps
+                    Sécurité de l&apos;IA · Cybersécurité
                 </div>
               </div>
             </div>
@@ -276,18 +276,36 @@ function Page() {
             className="p-10 border-[.5px] rounded-md border-zinc-600"
             style={{ backdropFilter: "blur(2px)" }}
           >
-            <h1 className="text-3xl mb-10 lg:md-20">About me</h1>
-            <p className="mb-10 text-roboto">
-              Hey there! I&apos;m Saifeddine, a Comp. Sci. Engineer specialized in cybersecurity and connected objects (IoT) with 1.5 year experience in Devlopment, DevOps,DevSecOps and 
-              Database management with hands-on experience in deploying & automating workflows, and 
-              collaborating with foreign clients. Strong analytical skills,effective communication,
-              and a team-oriented approach to driving process improvements and delivering results.
+            <h1 className="text-3xl mb-10 lg:md-20">À propos</h1>
+            <p className="mb-6 text-roboto">
+              Salut ! Moi c&apos;est Saifeddine. Je conçois des modèles
+              d&apos;intelligence artificielle à partir de données réelles de
+              capteurs, et je me spécialise dans ce qui peut les rendre
+              vulnérables.
+            </p>
+            <p className="mb-6 text-roboto">
+              Élève-ingénieur en cybersécurité à l&apos;EPITA, je suis R&amp;D
+              Data Engineer en alternance chez Mantu depuis septembre 2025, où je
+              travaille de la donnée brute jusqu&apos;au produit : un pipeline de
+              prévision de la consommation énergétique d&apos;un bâtiment
+              (ingestion sur Azure, séries temporelles, MLOps), la plateforme de
+              gestion des capteurs qui va avec, et sa sécurité. Avant Mantu,
+              j&apos;étais testeur d&apos;intrusion web chez Futurnet et
+              développeur full-stack en freelance.
+            </p>
+            <p className="mb-6 text-roboto">
+              Là où je vais : la sécurité des systèmes d&apos;IA — comprendre
+              comment un modèle peut être trompé, empoisonné par ses données ou
+              détourné, et comment le protéger. L&apos;IA se déploie partout, et
+              il faudra des profils capables à la fois de la construire et de la
+              sécuriser. C&apos;est ce profil que je construis.
             </p>
             <p className="mb-10">
-              When I&apos;m not coding, you’ll find me at the gym, playing football or basketball, hiking,
-              watching anime, exploring new places, or simply enjoying a good coffee.
+              Quand je ne code pas, je suis à la salle, sur un terrain de foot ou
+              de basket, en rando, devant un animé, en train d&apos;explorer un
+              nouvel endroit, ou simplement autour d&apos;un bon café.
             </p>
-            <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>
+            <h1 className="text-3xl mb-10 lg:md-20">Ce que j&apos;utilise</h1>
             <div className="mb-5">
               {!toolsLoaded ? (
                 <p className="h-[100px]"></p>
