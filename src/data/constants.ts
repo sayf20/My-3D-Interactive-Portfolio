@@ -245,6 +245,88 @@ export const SKILLS: Record<SkillNames, Skill> = {
 };
 
 
+// ---------------------------------------------------------------------------
+// NOUVELLES TOUCHES DU CLAVIER 3D (échange prévu dans Spline) :
+//   wordpress → pytorch, firebase → scikit, mongodb → pandas, express → fastapi,
+//   npm → kubernetes, vercel → terraform, css → owasp, html → grafana.
+//
+// Ces entrées ne sont PAS encore actives : le fichier skills-keyboard.spline
+// actuel ne contient pas d'objets portant ces "name". Une fois le nouveau
+// fichier Spline exporté (voir spline-assets/GUIDE_SPLINE.md) :
+//   1. ajouter chaque clé dans l'enum SkillNames (ex. PYTORCH = "pytorch"),
+//   2. déplacer chaque entrée ci-dessous dans SKILLS,
+//   3. retirer les anciennes entrées (wordpress, firebase, mongodb, express,
+//      npm, vercel, css, html) de SkillNames et de SKILLS.
+// Le champ "name" doit correspondre EXACTEMENT au nom de l'objet dans Spline.
+// ---------------------------------------------------------------------------
+export const UPCOMING_SKILLS: Record<string, Skill> = {
+  pytorch: {
+    id: 25,
+    name: "pytorch",
+    label: "PyTorch",
+    shortDescription: "Bibliothèque d'apprentissage profond pour entraîner des modèles.",
+    color: "#ee4c2c",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  },
+  scikit: {
+    id: 26,
+    name: "scikit",
+    label: "scikit-learn",
+    shortDescription: "Boîte à outils de référence pour l'apprentissage automatique.",
+    color: "#f7931e",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
+  },
+  pandas: {
+    id: 27,
+    name: "pandas",
+    label: "Pandas",
+    shortDescription: "Manipulation et analyse de données tabulaires en Python.",
+    color: "#e70488",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+  },
+  fastapi: {
+    id: 28,
+    name: "fastapi",
+    label: "FastAPI",
+    shortDescription: "Framework Python moderne pour exposer des modèles via une API.",
+    color: "#009688",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  },
+  kubernetes: {
+    id: 29,
+    name: "kubernetes",
+    label: "Kubernetes",
+    shortDescription: "Orchestration de conteneurs pour déployer à l'échelle.",
+    color: "#326ce5",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+  },
+  terraform: {
+    id: 30,
+    name: "terraform",
+    label: "Terraform",
+    shortDescription: "Infrastructure cloud décrite et versionnée comme du code.",
+    color: "#844fba",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
+  },
+  owasp: {
+    id: 31,
+    name: "owasp",
+    label: "OWASP",
+    shortDescription: "Référentiel des risques et bonnes pratiques de sécurité applicative.",
+    color: "#ffffff",
+    icon: "https://cdn.simpleicons.org/owasp/ffffff",
+  },
+  grafana: {
+    id: 32,
+    name: "grafana",
+    label: "Grafana",
+    shortDescription: "Tableaux de bord et supervision des métriques en temps réel.",
+    color: "#f46800",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
+  },
+};
+
+
 // +
 // export const SKILLS: Record<SkillNames, Skill> = {
 //   [SkillNames.AWS]: {
