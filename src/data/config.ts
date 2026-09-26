@@ -1,5 +1,5 @@
 const config = {
-  title: "Saifeddine MOSRATI | R&D Data Engineer · IA & Sécurité de l'IA",
+  title: "Saifeddine MOSRATI | Cybersécurité · IA · Cloud · DevSecOps",
   description: {
     long: "Portfolio de Saifeddine MOSRATI, R&D Data Engineer en alternance chez Mantu et élève-ingénieur en cybersécurité à l'EPITA. Je conçois des modèles d'intelligence artificielle à partir de données réelles de capteurs (prévision, séries temporelles, MLOps sur Azure) et je me spécialise dans la sécurité des systèmes d'IA : comprendre comment un modèle peut être trompé, empoisonné ou détourné, et comment le protéger.",
     short:

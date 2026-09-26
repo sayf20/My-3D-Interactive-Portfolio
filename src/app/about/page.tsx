@@ -1,47 +1,33 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { DiMongodb, DiNginx, DiNpm, DiPostgresql, DiVim } from "react-icons/di";
+import React from "react";
 import {
-  FaAws,
-  FaCss3,
   FaDocker,
   FaEnvelope,
-  FaGit,
   FaGithub,
-  FaHtml5,
   FaLinkedin,
   FaLinux,
-  FaNodeJs,
   FaPhone,
   FaReact,
-  //FaVuejs,
-  //FaYarn,
 } from "react-icons/fa6";
 import {
-  RiFirebaseFill,
-  //RiJavascriptFill,
-  //RiNextjsFill,
-  RiTailwindCssFill,
-} from "react-icons/ri";
-import {
-  SiExpress,
-  SiJavascript,
-  //SiKubuntu,
-  //SiPm2,
-  //SiPrettier,
-  SiTypescript,
-  SiVercel,
-  //SiVisualstudiocode,
-  SiJenkins,
+  SiBurpsuite,
+  SiGithubactions,
+  SiKalilinux,
   SiKubernetes,
+  SiMicrosoftazure,
+  SiNextdotjs,
+  SiOwasp,
+  SiPandas,
+  SiPostgresql,
   SiPython,
+  SiPytorch,
+  SiScikitlearn,
+  SiSpringboot,
+  SiTerraform,
+  SiTypescript,
+  SiWireshark,
 } from "react-icons/si";
-// import { VscCode } from "react-icons/vsc";
-
-// @ts-ignore
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
-import { TbTerminal2 } from "react-icons/tb";
+import { TbBinaryTree } from "react-icons/tb";
 
 const CONTACT_LINKS = [
   {
@@ -70,153 +56,105 @@ const CONTACT_LINKS = [
   },
 ];
 
-const TOOLS = [
-  {
-    name: "JavaScript",
-    content: "JavaScript is a high-level, interpreted programming language",
-    icon: <SiJavascript size={"50px"} color={"#f0db4f"} />,
-    color: "#f0db4f",
-  },
-  {
-    name: "TypeScript",
-    content: "TypeScript is a superset of JavaScript that compiles to plain JS",
-    icon: <SiTypescript size={"50px"} color={"#007acc"} />,
-    color: "#007acc",
-  },
-  {
-    name: "HTML",
-    content: "Next.js is a React framework for production",
-    icon: <FaHtml5 size={"50px"} color="#e34c26" />,
-    color: "#e34c26",
-  },
-  {
-    name: "CSS",
-    content: "Next.js is a React framework for production",
-    icon: <FaCss3 size={"50px"} color="#563d7c" />,
-    color: "#563d7c",
-  },
-  {
-    name: "Nodejs",
-    content: "Next.js is a React framework for production",
-    icon: <FaNodeJs size={"50px"} color="#6cc24a" />,
-    color: "#6cc24a",
-  },
-  {
-    name: "React.js",
-    content: "Next.js is a React framework for production",
-    icon: <FaReact size={"50px"} color="#61dafb" />,
-    color: "#61dafb",
-  },
-  {
-    name: "Docker",
-    content: "Next.js is a React framework for production",
-    icon: <FaDocker size={"50px"} color="#2496ed" />,
-    color: "#2496ed",
-  },
-  {
-    name: "NginX",
-    content: "Next.js is a React framework for production",
-    icon: <DiNginx size={"50px"} color="#008000" />,
-    color: "#008000",
-  },
-  {
-    name: "Azure",
-    content: "Microsoft's Hey, we do cloud too flex. 🌥️🔗s.",
-    icon: <SiKubernetes size={"50px"} color="#326ce5" />,
-    color: "#326ce5",
-  },
-  {
-    name: "Express.js",
-    content: "Next.js is a React framework for production",
-    icon: <SiExpress size={"50px"} color="#fff" />,
-    color: "#000000",
-  },
-  {
-    name: "PostgreSQL",
-    content: "Next.js is a React framework for production",
-    icon: <DiPostgresql size={"50px"} color="#336791" />,
-    color: "#336791",
-  },
-  {
-    name: "MongoDB",
-    content: "Next.js is a React framework for production",
-    icon: <DiMongodb size={"50px"} color="#4db33d" />,
-    color: "#4db33d",
-  },
-  {
-    name: "Tailwind CSS",
-    content: "Next.js is a React framework for production",
-    icon: <RiTailwindCssFill size={"50px"} color="#06b6d4" />,
-    color: "#06b6d4",
-  },
-  {
-    name: "Firebase",
-    content: "Next.js is a React framework for production",
-    icon: <RiFirebaseFill size={"50px"} color="#FFCA28" />,
-    color: "#FFCA28",
-  },
-  {
-    name: "Git",
-    content: "Next.js is a React framework for production",
-    icon: <FaGit size={"50px"} color="#f05032" />,
-    color: "#f05032",
-  },
-  {
-    name: "GitHub",
-    content: "Next.js is a React framework for production",
-    icon: <FaGithub size={"50px"} color="#fff" />,
-    color: "#000000",
-  },
-  {
-    name: "Jenkins",
-    content: "Jenkins automates building, testing, and deploying your code.",
-    icon: <SiJenkins size={"50px"} color="#d33833" />,
-    color: "#d33833",
-  },
-  {
-    name: "NPM",
-    content: "Next.js is a React framework for production",
-    icon: <DiNpm size={"50px"} color="#CB3837" />,
-    color: "#CB3837",
-  },
+type Tool = {
+  name: string;
+  icon: React.ReactNode;
+};
 
+type ToolFamily = {
+  name: string;
+  tools: Tool[];
+};
+
+const ICON_SIZE = "40px";
+
+// "Ce que j'utilise" : 4 familles alignées sur le profil
+// cybersécurité · IA · cloud · DevSecOps.
+const TOOL_FAMILIES: ToolFamily[] = [
   {
-    name: "Vercel",
-    content: "Next.js is a React framework for production",
-    icon: <SiVercel size={"50px"} color="#fff" />,
-    color: "#000000",
+    name: "IA & Data",
+    tools: [
+      { name: "Python", icon: <SiPython size={ICON_SIZE} color="#3776ab" /> },
+      { name: "PyTorch", icon: <SiPytorch size={ICON_SIZE} color="#ee4c2c" /> },
+      {
+        name: "scikit-learn",
+        icon: <SiScikitlearn size={ICON_SIZE} color="#f7931e" />,
+      },
+      { name: "Pandas", icon: <SiPandas size={ICON_SIZE} color="#e70488" /> },
+      // XGBoost n'a pas de logo dans les bibliothèques d'icônes :
+      // icône symbolique d'arbre de décision.
+      {
+        name: "XGBoost",
+        icon: <TbBinaryTree size={ICON_SIZE} color="#1a9fdc" />,
+      },
+    ],
   },
   {
-    name: "Linux",
-    content: "Next.js is a React framework for production",
-    icon: <FaLinux size={"50px"} color="#fff" />,
-    color: "#000000",
+    name: "Cybersécurité",
+    tools: [
+      { name: "OWASP", icon: <SiOwasp size={ICON_SIZE} color="#ffffff" /> },
+      { name: "Linux", icon: <FaLinux size={ICON_SIZE} color="#ffffff" /> },
+      {
+        name: "Tests d'intrusion",
+        icon: <SiKalilinux size={ICON_SIZE} color="#8fb4d6" />,
+      },
+      {
+        name: "Burp Suite",
+        icon: <SiBurpsuite size={ICON_SIZE} color="#ff6633" />,
+      },
+      {
+        name: "Wireshark",
+        icon: <SiWireshark size={ICON_SIZE} color="#1679a7" />,
+      },
+    ],
   },
   {
-    name: "Terminal",
-    content: "Next.js is a React framework for production",
-    icon: <TbTerminal2 size={"50px"} color="#fff" />,
-    color: "#000000",
+    name: "Cloud & DevSecOps",
+    tools: [
+      {
+        name: "Azure",
+        icon: <SiMicrosoftazure size={ICON_SIZE} color="#0078d4" />,
+      },
+      { name: "Docker", icon: <FaDocker size={ICON_SIZE} color="#2496ed" /> },
+      {
+        name: "Kubernetes",
+        icon: <SiKubernetes size={ICON_SIZE} color="#326ce5" />,
+      },
+      {
+        name: "Terraform",
+        icon: <SiTerraform size={ICON_SIZE} color="#844fba" />,
+      },
+      {
+        name: "GitHub Actions",
+        icon: <SiGithubactions size={ICON_SIZE} color="#2088ff" />,
+      },
+    ],
   },
   {
-    name: "AWS",
-    content: "Next.js is a React framework for production",
-    icon: <FaAws size={"50px"} color="#3f51b5" />,
-    color: "#000000",
-  },
-  {
-    name: "Python",
-    content: "Next.js is a React framework for production",
-    icon: <SiPython size={"50px"} color="#3776ab" />,
-    color: "#3776ab",
+    name: "Développement",
+    tools: [
+      {
+        name: "TypeScript",
+        icon: <SiTypescript size={ICON_SIZE} color="#3178c6" />,
+      },
+      { name: "React", icon: <FaReact size={ICON_SIZE} color="#61dafb" /> },
+      {
+        name: "Next.js",
+        icon: <SiNextdotjs size={ICON_SIZE} color="#ffffff" />,
+      },
+      {
+        name: "Spring Boot",
+        icon: <SiSpringboot size={ICON_SIZE} color="#6db33f" />,
+      },
+      {
+        name: "PostgreSQL",
+        icon: <SiPostgresql size={ICON_SIZE} color="#699eca" />,
+      },
+    ],
   },
 ];
 
 function Page() {
-  const [toolsLoaded, setToolsLoaded] = useState(false);
-  useEffect(() => {
-    setToolsLoaded(true);
-  }, []);
   return (
     <div className="container mx-auto px-4 md:px-[50px] xl:px-[200px] text-zinc-300 pt-20 pb-20">
       <div className="flex flex-col lg:flex-row gap-5">
@@ -271,7 +209,7 @@ function Page() {
             </div>
           </div>
         </aside>
-        <main className="basis-3/4 w-[500px]">
+        <main className="w-full lg:basis-3/4 lg:w-auto">
           <div
             className="p-10 border-[.5px] rounded-md border-zinc-600"
             style={{ backdropFilter: "blur(2px)" }}
@@ -306,66 +244,28 @@ function Page() {
               nouvel endroit, ou simplement autour d&apos;un bon café.
             </p>
             <h1 className="text-3xl mb-10 lg:md-20">Ce que j&apos;utilise</h1>
-            <div className="mb-5">
-              {!toolsLoaded ? (
-                <p className="h-[100px]"></p>
-              ) : (
-                <Splide
-                  options={{
-                    type: "loop",
-                    interval: 2000,
-                    autoplay: true,
-                    pagination: false,
-                    speed: 2000,
-                    perPage: 5,
-                    perMove: 1,
-                    rewind: true,
-                    easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-                    arrows: false,
-                  }}
-                  aria-label="My Favorite Images"
-                >
-                  {TOOLS.reverse().map((tool) => (
-                    <SplideSlide key={tool.name}>
-                      <div
+            <div className="flex flex-col gap-8">
+              {TOOL_FAMILIES.map((family) => (
+                <section key={family.name} aria-label={family.name}>
+                  <h2 className="text-sm uppercase tracking-widest text-zinc-500 mb-3">
+                    {family.name}
+                  </h2>
+                  <ul className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+                    {family.tools.map((tool) => (
+                      <li
                         key={tool.name}
-                        className="w-fit p-2 border-[.5px] border-zinc-600 rounded-md"
+                        className="flex flex-col items-center justify-center gap-2 p-3 border-[.5px] border-zinc-600 rounded-md"
                       >
                         {tool.icon}
-                      </div>
-                    </SplideSlide>
-                  ))}
-                </Splide>
-              )}
+                        <span className="text-[11px] leading-tight text-center text-zinc-400">
+                          {tool.name}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
             </div>
-            {/* <div className="">
-              <Splide
-                options={{
-                  type: "loop",
-                  interval: 2000,
-                  autoplay: true,
-                  pagination: false,
-                  speed: 3000,
-                  perPage: 5,
-                  perMove: 1,
-                  rewind: true,
-                  easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-                  arrows: false,
-                }}
-                aria-label="My Favorite Images"
-              >
-                {TOOLS.map((tool) => (
-                  <SplideSlide key={tool.name}>
-                    <div
-                      key={tool.name}
-                      className="w-fit p-2 border-[.5px] border-zinc-600 rounded-md"
-                    >
-                      {tool.icon}
-                    </div>
-                  </SplideSlide>
-                ))}
-              </Splide>
-            </div> */}
           </div>
         </main>
       </div>

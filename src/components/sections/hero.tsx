@@ -72,12 +72,26 @@ const HeroSection = () => {
                 <BlurIn delay={1.2}>
                   <p
                     className={cn(
-                      "md:self-start md:mt-4 font-thin text-md text-slate-500 dark:text-zinc-400 ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "md:self-start md:mt-4 ml-3 cursor-default font-display",
+                      "text-lg sm:text-xl md:text-2xl text-slate-800 dark:text-zinc-100"
                     )}
                   >
-                    R&D Data Engineer @ Mantu — je construis l&apos;IA, et je
-                    la sécurise.
+                    <span className="whitespace-nowrap">Cybersécurité ·</span>{" "}
+                    <span className="whitespace-nowrap">IA ·</span>{" "}
+                    <span className="whitespace-nowrap">Cloud ·</span>{" "}
+                    <span className="whitespace-nowrap">DevSecOps</span>
+                  </p>
+                </BlurIn>
+                <BlurIn delay={1.4}>
+                  <p
+                    className={cn(
+                      "md:self-start mt-1 ml-3 cursor-default font-thin",
+                      "text-xs sm:text-sm md:text-base text-slate-500 dark:text-zinc-400"
+                    )}
+                  >
+                    <span className="whitespace-nowrap">Élève-ingénieur EPITA ·</span>{" "}
+                    <br className="sm:hidden" />
+                    <span className="whitespace-nowrap">R&amp;D Data Engineer chez Mantu</span>
                   </p>
                 </BlurIn>
               </div>
